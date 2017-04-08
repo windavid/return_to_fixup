@@ -69,7 +69,7 @@ system("/bin/sh")).
 ```asm
 <func@plt+0>:     jmp    DWORD PTR GOT[FUNC]
 <func@plt+6>:     push   reloc_arg        ; unique for every func
-<func@plt+11>:    jmp    0x80483e0
+<func@plt+11>:    jmp    plt[0]
 ...
 <plt[0]>:         push   DWORD PTR GOT[1] ; link_map
 <plt[0] + 6>:     jmp    DWORD PTR GOT[2] ; trampoline_fixup
