@@ -1,4 +1,7 @@
-/* This file defines standard ELF types, structures, and macros.
+/* 
+   Modified version? of eglibc file   
+
+   This file defines standard ELF types, structures, and macros.
    Copyright (C) 1995-2016 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
