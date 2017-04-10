@@ -199,7 +199,7 @@ int main(void)
     char binsh[] = "/bin/sh";
     // WARNING: in this POC strchr must be called first time here,
     // cause we want a relatively simple demo programm
-    // if puts was called earlie, POC won't work (cuz dl_dixup won't be called)
+    // if puts was called earlier, POC won't work (cuz dl_dixup won't be called)
 	// also, LD_BIND_NOW must not be set, cuz dl_fixup won't be called either
     char *pos = strchr(binsh, 's');
     printf("s is on %d place\n", pos - binsh);
