@@ -45,7 +45,7 @@ system("/bin/sh")).
 
 ### Обозначения
 
-Что такое GOT и plt описано [GOT and plt](got_plt.md)
+Как работает GOT и plt описано здесь: [GOT and plt](got_plt.md)
 
 Список обозначений, используемых в дальнейшем:
 * GOT - global offset table
@@ -65,7 +65,6 @@ system("/bin/sh")).
 через @plt трамплин. Рассмотрим внимательнее последовательность вызовов и
 договоримся насчет обозначений, используемых в дальнейшем.  Ассемблерный код с
 небольшими правками для удобства (листинг 1.1)
-
 ```asm
 <func@plt+0>:     jmp    DWORD PTR GOT[FUNC]
 <func@plt+6>:     push   reloc_arg        ; unique for every func
@@ -278,10 +277,10 @@ _dl_lookup_symbol_x (const char *undef_name, struct link_map *undef_map,
 		     const struct r_found_version *version,
 		     int type_class, int flags, struct link_map *skip_map)
 ```
-Первый параметр undef_name самый *важный* для нас - это имя функции, полученное
+Первый параметр undef_name самый **важный** для нас - это имя функции, полученное
 ранее, согласно схеме на фиг. 1.1. undev_name = strtab + sym->st_name, то есть
 адрес таблицы строк + смещение в таблице строк.
-Еще один *важный* параметр - symbol_scope. Это указатель лист из link_map'ов,
+Еще один **важный** параметр - symbol_scope. Это указатель лист из link_map'ов,
 описывающих адресное пространство.  Как мы видим, в качестве этого параметра
 передается l->l_scope.  В стандартной структуре link_map поле l_scope указывает
 на соседнее (через одно) поле l_scope_mem. То есть l->l_scope =

@@ -1,4 +1,4 @@
-# Пример использования return_to_libc: решение brainfuck
+# Пример использования return_to_fixup: решение brainfuck
 
 В данной части мы применим технику return_to_fixup для решения задания
 brainfuck с сайта pwnable.kr. 
